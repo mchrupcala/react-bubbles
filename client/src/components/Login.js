@@ -15,15 +15,15 @@ const Login = props => {
         ...credentials, 
         [e.target.name]: e.target.value,
       });
-      console.log(credentials);
+      // console.log(credentials);
     }
 
     const submitHandler = e => {
       e.preventDefault();
-      axiosWithAuth().post('http://localhost:5000/api/login', {username: 'Lambda School', password: 'i<3Lambd4'})
+      axiosWithAuth().post('http://localhost:5000/api/login', credentials)
       .then(res => {
         console.log(res);
-        localStorage.setItem('token', res.data.token);
+        localStorage.setItem('token', res.data.payload);
         props.history.push('/bubblepage');
       })
       .catch(err => {
