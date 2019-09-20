@@ -7,22 +7,17 @@ const Login = props => {
 
   const [credentials, setCredentials] = useState({});
 
-  // const login = () => {
-  // }
-
     const changeHandler = e => {
       setCredentials({
         ...credentials, 
         [e.target.name]: e.target.value,
       });
-      // console.log(credentials);
     }
 
     const submitHandler = e => {
       e.preventDefault();
       axiosWithAuth().post('http://localhost:5000/api/login', credentials)
       .then(res => {
-        console.log(res);
         localStorage.setItem('token', res.data.payload);
         props.history.push('/bubblepage');
       })
