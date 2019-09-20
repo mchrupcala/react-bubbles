@@ -28,11 +28,10 @@ const Login = props => {
 
   return (
     <>
-      <p>Built a login page here</p>
 
-      <div>
+      <div className='login-div'>
 
-        <form onSubmit={submitHandler}>
+        <form  className='login-form' onSubmit={submitHandler}>
           <input 
           type="text" 
           name="username" 

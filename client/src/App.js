@@ -13,6 +13,7 @@ function App() {
     <Router>
       <div className="App">
       <h1>Welcome to the Bubble App!</h1>
+      
         <Link to="/login">Login</Link>
         <Link to="bubblepage">Dashboard</Link>
 
