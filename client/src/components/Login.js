@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import axiosWithAuth from "./axiosWithAuth";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 const Login = props => {
   // make a post request to retrieve a token from the api
@@ -7,19 +7,27 @@ const Login = props => {
 
   const [credentials, setCredentials] = useState({});
 
-  const login = () => {
-    axiosWithAuth.post('http://localhost:5000/api/login', credentials)
-    .then(res => {
-      console.log(res.data);
-      localStorage.setItem('token', res.data.token);
-      props.history.push('/bubblepage');
-    })
-  }
+  // const login = () => {
+  // }
 
     const changeHandler = e => {
       setCredentials({
         ...credentials, 
         [e.target.name]: e.target.value,
+      });
+      console.log(credentials);
+    }
+
+    const submitHandler = e => {
+      e.preventDefault();
+      axiosWithAuth().post('http://localhost:5000/api/login', {username: 'Lambda School', password: 'i<3Lambd4'})
+      .then(res => {
+        console.log(res);
+        localStorage.setItem('token', res.data.token);
+        props.history.push('/bubblepage');
+      })
+      .catch(err => {
+        console.log(err)
       })
     }
 
@@ -29,16 +37,18 @@ const Login = props => {
 
       <div>
 
-        <form>
+        <form onSubmit={submitHandler}>
           <input 
           type="text" 
           name="username" 
-          value={credentials.username}></input>
+          value={credentials.username}
+          onChange={changeHandler}></input>
 
           <input 
           type="password" 
           name="password" 
-          value={credentials.password}></input>
+          value={credentials.password}
+          onChange={changeHandler}></input>
 
           <button type="submit">Log In</button>
 
