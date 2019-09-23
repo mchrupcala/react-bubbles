@@ -29,9 +29,16 @@ In this project you will create a login page and request a token from the server
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Explain what a token is used for.
+  A: 	Tokens are the standard way of authenticating a user online. My server’s going to issue a unique token - a semi random string of garbled data - to each user that they’ll save on their comp. Then when the user logs in, they’ll send my server the token which acts as their ‘passport’ to gain access to the website.
+
 - [ ] What steps can you take in your web apps to keep your data secure?
+  A: Private Routes are really helpful here - they let me block access to a webpage unless the user’s been verified and authenticated (using a hashed token). Second, I’ll want to avoid storing any of the user’s sensitive info in the browser or URL. Passwords for example, should be anonymized on the web page so they don’t display on-screen, and when I send them to the server/database they’ll need to be masked somehow, not kept in local storage, and not stored in the URL file path that I direct the user too. 
+
 - [ ] Describe how web servers work.
+A: 	Servers are computers which are configured completely differently from personal comps…they’re usually built in data centers, and they’re designed to store files which serve websites. My computer’s browser will send a request to the server- the server will then retrieve whatever files my computers needs, and send me a copy. If it’s remembering my login info and verifying that I have access, the server will check my authentication token and verify that it issues the token and I didn’t receive it from somewhere else.
+
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+  A:  POST (‘create’), GET (‘read’), PUT (‘update’), DELETE (‘delete’).
 
 
 ## Project Set Up

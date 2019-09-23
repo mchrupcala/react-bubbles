@@ -18,6 +18,16 @@ body,
   svg {
     height: 100%;
   }
+
+  a {
+    margin: 0 10px;
+    text-decoration: none;
+  }
+
+  a:hover {
+    font-weight: bold;
+    color: grey;
+  }
 }
 
 .spacer {
@@ -28,6 +38,30 @@ body,
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+}
+
+.login-div {
+  // width: 60%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form input{
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.add-header {
+  margin-top: 60px;
+}
+
+.addColor {
+  display: flex;
+  align-items: center;
 }
 
 .colors-wrap {
